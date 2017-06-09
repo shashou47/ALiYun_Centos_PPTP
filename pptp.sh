@@ -61,7 +61,7 @@ fi
 
 echo "vpn pptpd ${pass} *" >> /etc/ppp/chap-secrets
 
-iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
 iptables -A FORWARD -p tcp --syn -s 192.168.8.0/24 -j TCPMSS --set-mss 1356
 iptables -A INPUT -p gre -j ACCEPT
 service iptables save
